@@ -1,0 +1,23 @@
+{
+  "name": "whats_for_dinner",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xunaxidonita/Whats_for_dinner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xunaxidonita/Whats_for_dinner/issues"
+  },
+  "homepage": "https://github.com/Xunaxidonita/Whats_for_dinner#readme",
+  "dependencies": {
+    "express-handlebars": "^5.3.1"
+  }
+}
