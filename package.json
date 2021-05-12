@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Xunaxidonita/Whats_for_dinner#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "connect-session-sequelize": "^7.1.1",
     "dotenv": "^9.0.0",
     "express": "^4.17.1",
