@@ -4,7 +4,7 @@ const seed = [];
 
 
 
-fetchCategories.getCategories()
+Category.fetchCategories.getCategories()
 .then((cat) => {
     for(let i = 0; i <= 13; i++){
         let catObj = {"category_name": cat[i].strCategory }
