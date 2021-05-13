@@ -1,0 +1,28 @@
+body {
+    font-family: "Lato", sans-serif;
+    color: #ffffff;
+    margin: 0px;
+    padding: 0px;
+    background-color: #333;
+}
+
+main {
+    background: url("https://www.englishclub.com/images/vocabulary/food/italian/italian-food-1024.jpg") no-repeat center;
+    background-size: cover;
+    border-radius: 20px;    
+  width: 1400px;
+  height: 700px;
+  margin: 0 auto;
+  margin-top: 60px;
+  margin-bottom: 60px;
+ 
+}
+
+h1 {
+    font-family: "Lato", sans-serif;
+    text-align: right;
+    font-weight: 500;
+    font-size: 50px;
+    margin: 0px 40px 0px 0px;
+    padding: 40px 0px 0px 0px;
+}
