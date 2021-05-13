@@ -1,11 +1,11 @@
 <article class="post">
 <div class="title">
 <h1>
-    {{post.title}}
+    {{recipe.title}}
 </h1>
 </div>
 <div class="subtitle">
-    Submitted by {{user.username}} on {{post.created_at}}
+    Submitted by {{user.username}} on {{recipe.created_at}}
 </div>
 <div class="meta">
     <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>

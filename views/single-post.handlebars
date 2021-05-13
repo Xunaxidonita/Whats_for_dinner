@@ -1,4 +1,4 @@
-{{> post-info post}}
+{{> post-info recipe}}
 {{!-- need recipe model to complete this part
 <h2>What You Need</h2>
 <div class="ingredients">
@@ -29,7 +29,7 @@
 </form>
 {{/if}}
 
-{{> comments post.comments}}
+{{> comments recipe.comments}}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
