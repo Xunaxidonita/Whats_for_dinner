@@ -1,19 +1,14 @@
 {{> post-info recipe}}
-{{!-- need recipe model to complete this part
-<h2>What You Need</h2>
-<div class="ingredients">
-    <ul class="ingredients-list">
+<h2>Give This A Try</h2>
+<div class="title">
+    {{{recipe.title}}}
 
-    </ul>
+    
 </div>
-<h2>What You Do</h2>
-<div class="directions">
-<ol class="directions-list">
-    <li>
 
-    </li>
-</ol> --}}
-
+<div class="recipe-description">
+  {{recipe.description}}
+</div>
 
 
 {{#if loggedIn}}
