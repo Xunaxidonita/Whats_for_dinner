@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Recipe, User, Comment, Category } = require('../models');
+const withAuth = require('../utils/auth');
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     Recipe.findAll({
         where: {
             user_id: req.session.user_id
@@ -32,7 +33,10 @@ router.get('/', (req, res) => {
     })
     .then(dbRecipeData => {
         const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
-        res.render('dashboard', { recipes });
+        res.render('dashboard', { 
+            recipes,
+            loggedIn: true 
+        });
     })
     .catch(err => {
         console.log(err);
@@ -40,7 +44,7 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/edit/:id', (req, res) => {
+router.get('/edit/:id', withAuth, (req, res) => {
     Recipe.findOne({
         where: {
             id: req.params.id

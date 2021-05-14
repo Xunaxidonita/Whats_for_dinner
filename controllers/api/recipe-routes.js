@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User, Recipe, Category, Comment } = require('../../models');
 const sequelize = require('../../config/connection');
+const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Recipe.findAll({
@@ -78,7 +79,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+router.post('/', withAuth, (req, res) => {
     Recipe.create({
         title: req.body.title,
         description: req.body.description,
@@ -94,7 +95,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Recipe.update({
         where: {
             id: req.params.id
@@ -117,7 +118,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Recipe.destroy({
         where: {
             id: req.params.id

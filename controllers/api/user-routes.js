@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const { Comment, Category, User, Recipe } = require('../../models');
 const sequelize = require('../../config/connection');
+const withAuth = require('../../utils/auth');
 
+// GET all Users
 router.get('/', (req, res) => {
     User.findAll({
         exclude: ['password'],
@@ -20,6 +22,7 @@ router.get('/', (req, res) => {
     });
 });
 
+// GET one User
 router.get('/:id', (req, res) => {
     User.findOne({
         where: {
@@ -52,7 +55,8 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/', (req, res) => {
+// Create new User
+router.post('/', withAuth, (req, res) => {
     User.create({
         username: req.body.username,
         email: req.body.email,
@@ -60,10 +64,11 @@ router.post('/', (req, res) => {
     })
     .then(dbUserData => {
         req.session.save(() => {
-            req.session.user_id = dbUserData.user_id;
+            req.session.user_id = dbUserData.id;
             req.sesssion.username = dbUserData.username;
+            req.session.loggedIn = true;
 
-            res.json(dbUserData);
+            res.json({ user: dbUserData, message: 'You are now logged in!' });
         });
     })
     .catch(err => {
@@ -72,6 +77,7 @@ router.post('/', (req, res) => {
     });
 });
 
+// Login
 router.post('/login', (req, res) => {
     User.findOne({
         where: {
@@ -104,7 +110,8 @@ router.post('/login', (req, res) => {
     });
 });
 
-router.post('/logout', (req, res) => {
+// Logout
+router.post('/logout', withAuth, (req, res) => {
     if (req.session.loggedIn) {
         req.session.destroy(() => {
             res.status(204).end();
@@ -114,7 +121,8 @@ router.post('/logout', (req, res) => {
     };
 });
 
-router.put('/:id', (req, res) => {
+// Edit one User
+router.put('/:id', withAuth, (req, res) => {
     User.update(req.body, {
         where: {
             id: req.params.id
@@ -132,7 +140,8 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+// Delete one user
+router.delete('/:id', withAuth, (req, res) => {
     User.destroy({
         where: {
             id: req.params.id

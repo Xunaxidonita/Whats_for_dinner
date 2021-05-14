@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Comment, User, Recipe, Category } = require('../../models');
 const sequelize = require('../../config/connection');
+const withAuth = require('../../utils/auth');
 
 router.get('/', (req, res) => {
     Comment.findAll({
@@ -75,7 +76,22 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.put('/:id', (req, res) => {
+router.post('/', withAuth, (req, res) => {
+    Comment.create({
+        comment_text: req.body.comment_text,
+        user_id: req.session.user_id,
+        recipe_id: req.body.recipe_id
+    })
+    .then(dbCommentData => {
+        res.json(dbCommentData);
+    })
+    .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+    });
+});
+
+router.put('/:id', withAuth, (req, res) => {
     Comment.update(req.body, {
         where: {
             id: req.params.id
@@ -93,7 +109,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', withAuth, (req, res) => {
     Comment.destroy({
         where: {
             id: req.params.id
