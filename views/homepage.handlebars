@@ -1,29 +1,15 @@
-<<<<<<< HEAD
-<ol class="recipe-list">
-    {{#each recipes as |recipe|}}
-=======
 <ol class="post-list">
     {{#each recipe as |recipe|}}
->>>>>>> 4138253 (made changes to handlebars templates based on edits made to models)
     <li>
         <article class="recipe">
             <div class="title">
-<<<<<<< HEAD
-                <a href="{{recipe.recipe_url}}" target="_blank">{{recipe.title}}</a>
-                by {{recipe.user.username}} on {{recipe.created_at}}
-=======
                 <a href="{{post.post_url}}" target="_blank">{{recipe.title}}</a>
                 {{!-- need url field first: by {{post.user.username}} on {{recipe.created_at}} --}}
->>>>>>> 4138253 (made changes to handlebars templates based on edits made to models)
         
             </div>
             <div class="meta">
                
-<<<<<<< HEAD
-                <a href="/recipe/{{id}}">{{recipe.comments.length}} comment(s)</a>
-=======
                 <a href="/post/{{id}}">{{recipe.comments.length}} comment(s)</a>
->>>>>>> 4138253 (made changes to handlebars templates based on edits made to models)
             </div>
         </article>
     </li>
