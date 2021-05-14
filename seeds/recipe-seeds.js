@@ -1,24 +1,22 @@
-const Category = require("../utils/fetchCategories")
+const { Recipe } = require("../models");
 const fetch = require("node-fetch");
 const recipes = []
 
-Category.fetchCategories.getCategories()
-    .then((cat) => {
-        testCreate(cat)
-    });
-
-
-async function testCreate(cat) {
-    for (let i=0; i<=25; i++) {
+async function recipeCreate() {
+    for (let i=0; i<=2; i++) {
         let recipeId = 52764;
         let url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId + i}`
         try {
-            let response = await fetch(url)
-            let map = await response.json()
-            recipes.push(map.meals)
-            console.log(recipes)
+            let res = await fetch(url)
+            let map = await res.json()
+            let mapObj = map.meals[0]
+            let recipeObj = {"title": mapObj.strMeal, "description": mapObj.strInstructions}
+            recipes.push(recipeObj)
         } catch (err) {
             console.log(err);
         }
     }
+    Recipe.bulkCreate(recipes)
 }
+
+module.exports = recipeCreate;
