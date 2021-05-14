@@ -8,7 +8,6 @@ const fetchCategories = {
             console.log(responseData);
             return responseData;
         })
-
     }
 }
 

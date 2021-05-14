@@ -31,7 +31,7 @@ router.get('/', (req, res) => {
         const recipes = dbRecipeData.map(recipe => recipe.get({ plain: true }));
         res.render('homepage', { 
             recipes,
-            loggedIn: req.session.loggedIn
+            //loggedIn: req.session.loggedIn
          });
     })
     .catch(err => {
