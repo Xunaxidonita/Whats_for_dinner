@@ -4,7 +4,7 @@ const recipes = []
 
 async function recipeCreate() {
     for (let i=0; i<=2; i++) {
-        let recipeId = 52764;
+        let recipeId = 52767;
         let url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${recipeId + i}`
         try {
             let res = await fetch(url)
