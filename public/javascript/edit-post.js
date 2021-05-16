@@ -1,4 +1,4 @@
-$(".new-post-form").on("submit", async (event) => {
+$(".edit-post-form").on("submit", async (event) => {
   event.preventDefault();
   event.stopPropagation();
   const data = $(event.currentTarget)
@@ -8,8 +8,8 @@ $(".new-post-form").on("submit", async (event) => {
       return obj;
     }, {});
   try {
-    const response = await fetch("/api/recipes/", {
-      method: "POST",
+    const response = await fetch(`/api/recipes/${data.id}`, {
+      method: "PUT",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
@@ -17,7 +17,7 @@ $(".new-post-form").on("submit", async (event) => {
     });
     debugger;
     if (response.status == 200) {
-      location.replace(`/dashboard`);
+      location.replace(`/recipe/${data.id}`);
     }
   } catch (e) {
     // TODO: show error message

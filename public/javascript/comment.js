@@ -8,7 +8,7 @@ $(".comment-form").on("submit", async (event) => {
       return obj;
     }, {});
   try {
-    const response = await fetch("/api/users/login", {
+    const response = await fetch("/api/comments/", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
@@ -17,7 +17,7 @@ $(".comment-form").on("submit", async (event) => {
     });
     debugger;
     if (response.status == 200) {
-      location.replace("/");
+      location.reload;
     }
   } catch (e) {
     // TODO: show error message
