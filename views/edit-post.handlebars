@@ -4,16 +4,17 @@
     Edit Post
   </h2>
   <form class="edit-post-form">
+    <input type="hidden" name="id" value="{{value.id}}">
     <div>
-      <input name="post-title" type="text" value="{{post.title}}" />
-      <span>({{format_url post.post_url}})</span>
+      <input name="title" type="text" value="{{post.title}}" />
+      {{!-- <span>({{format_url post.post_url}})</span> --}}
     </div>
     <div>
       
-      <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
+      {{!-- <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a> --}}
     </div>
     <button type="submit">Save post</button>
-    <button type="button" class="delete-post-btn">Delete post</button>
+    <button type="button" class="delete-post-btn" data-id="{{post.id}}">Delete post</button>
   </form>
 </article>
 
@@ -27,7 +28,7 @@
   </div>
 </form>
 
-{{> comments post.comments}}
+{{!-- {{> comments post.comments}} --}}
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>

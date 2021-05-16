@@ -74,7 +74,8 @@ router.get('/recipe/:id', (req, res) => {
         ]
     })
     .then(dbRecipeData => {
-        const recipe = dbRecipeData.get({ plain: true });
+        // const recipe = dbRecipeData.get({ plain: true });
+        const post = {}
         res.render('single-post', { 
             post,
             loggedIn: req.session.loggedIn
