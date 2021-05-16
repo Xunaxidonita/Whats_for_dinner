@@ -28,5 +28,6 @@
     "node-fetch": "^2.6.1",
     "sequelize": "^6.6.2"
   },
+  "devDependencies": {},
   "description": ""
 }
