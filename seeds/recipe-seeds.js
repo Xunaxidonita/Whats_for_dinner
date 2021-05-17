@@ -3,16 +3,16 @@ const fetch = require("node-fetch");
 const seedCategories = require("./category-seeds");
 const recipes = [];
 
-const getCategoryList = async function () {
-  const categories = await seedCategories();
-  return categories.map((cat) => {
-    cat.category_name;
-  });
-};
+// const getCategoryList = async function () {
+//   const categories = await seedCategories();
+//   return categories.map((cat) => {
+//     cat.category_name;
+//   });
+// };
 
-const categorySamples = async function () {
-  catList = getCategoryList();
-};
+// const categorySamples = async function () {
+//   catList = getCategoryList();
+// };
 
 async function recipeCreate() {
   for (let i = 0; i <= 2; i++) {
@@ -33,8 +33,8 @@ async function recipeCreate() {
       console.log(err);
     }
   }
-
   try {
+    debugger;
     await Recipe.bulkCreate(recipes);
   } catch (err) {
     console.log(err);
