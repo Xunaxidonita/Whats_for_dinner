@@ -59,7 +59,9 @@ a:link {
   }
 
   html { 
-    background: url(https://www.englishclub.com/images/vocabulary/food/italian/italian-food-1024.jpg) no-repeat center center fixed; 
+    background: url(https://www.englishclub.com/images/vocabulary/food/italian/italian-food-1024.jpg) no-repeat center center fixed;
+   
+    
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
