@@ -1,25 +1,25 @@
-async function newFormHandler(event) {
-    event.preventDefault();
-  
-    const title = document.querySelector('input[name="post-title"]').value;
-    const post_url = document.querySelector('input[name="post-url"]').value;
-  
-    const response = await fetch(`/api/posts`, {
-      method: 'POST',
-      body: JSON.stringify({
-        title,
-        post_url
-      }),
+
+$(".new-post-form").on("submit", async (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  const data = $(event.currentTarget)
+    .serializeArray()
+    .reduce(function (obj, item) {
+      obj[item.name] = item.value;
+      return obj;
+    }, {});
+  try {
+    const response = await fetch("/api/recipes/", {
+      method: "POST",
+      body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     });
-  
-    if (response.ok) {
-      document.location.replace('/dashboard');
-    } else {
-      alert(response.statusText);
+    if (response.status == 200) {
+      location.replace(`/dashboard`);
     }
+  } catch (e) {
+    // TODO: show error message
   }
-  
-  document.querySelector('.new-post-form').addEventListener('submit', newFormHandler);
+});

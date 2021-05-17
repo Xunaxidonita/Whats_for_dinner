@@ -16,7 +16,13 @@ async function recipeCreate() {
             console.log(err);
         }
     }
-    Recipe.bulkCreate(recipes)
+
+    try {
+        await Recipe.bulkCreate(recipes)
+    } catch (err) {
+        console.log(err);
+
+    }
 }
 
 module.exports = recipeCreate;

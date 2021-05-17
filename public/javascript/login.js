@@ -1,53 +1,60 @@
-async function loginFormHandler(event) {
-    event.preventDefault();
-  
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
-  
-    if (email && password) {
-      const response = await fetch('/api/users/login', {
-        method: 'post',
-        body: JSON.stringify({
-          email,
-          password
-        }),
-        headers: { 'Content-Type': 'application/json' }
-      });
-  
-      if (response.ok) {
-        document.location.replace('/dashboard/');
-      } else {
-        alert(response.statusText);
-      }
+$(".signup-form").on("submit", async (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+
+  const data = $(event.currentTarget)
+    .serializeArray()
+    .reduce(function (obj, item) {
+      obj[item.name] = item.value;
+      return obj;
+    }, {});
+
+  try {
+    const response = await fetch("/api/users/", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const result = await response.json();
+    if (response.status == 200) {
+      location.replace("/");
+      return;
+    } else {
+      const errorMessage = await response.json();
+      $("#signup-error").text(errorMessage.message);
     }
+  } catch (e) {
+    console.error("Something went wrong!");
   }
-  
-  async function signupFormHandler(event) {
-    event.preventDefault();
-  
-    const username = document.querySelector('#username-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
-  
-    if (username && email && password) {
-      const response = await fetch('/api/users', {
-        method: 'post',
-        body: JSON.stringify({
-          username,
-          email,
-          password
-        }),
-        headers: { 'Content-Type': 'application/json' }
-      });
-  
-      if (response.ok) {
-        document.location.replace('/dashboard/');
-      } else {
-        alert(response.statusText);
-      }
+});
+
+$(".login-form").on("submit", async (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  const data = $(event.currentTarget)
+    .serializeArray()
+    .reduce(function (obj, item) {
+      obj[item.name] = item.value;
+      return obj;
+    }, {});
+  try {
+    const response = await fetch("/api/users/login", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.status == 200) {
+      location.replace("/");
+    } else {
+      const errorMessage = await response.json();
+      $("#login-error").text(errorMessage.message);
     }
+  } catch (e) {
+    console.error("Something went wrong!");
   }
-  
-  document.querySelector('.login-form').addEventListener('submit', loginFormHandler);
-  
-  document.querySelector('.signup-form').addEventListener('submit', signupFormHandler);
+});

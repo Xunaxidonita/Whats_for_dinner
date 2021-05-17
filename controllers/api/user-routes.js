@@ -56,18 +56,17 @@ router.get('/:id', (req, res) => {
 });
 
 // Create new User
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
         email: req.body.email,
         password: req.body.password
     })
     .then(dbUserData => {
+        req.session.user_id = dbUserData.id;
+        req.session.username = dbUserData.username;
+        req.session.loggedIn = true;
         req.session.save(() => {
-            req.session.user_id = dbUserData.id;
-            req.sesssion.username = dbUserData.username;
-            req.session.loggedIn = true;
-
             res.json({ user: dbUserData, message: 'You are now logged in!' });
         });
     })

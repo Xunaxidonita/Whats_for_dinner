@@ -1,20 +1,11 @@
-{{> post-info recipe}}
-<h2>Give This A Try</h2>
-<div class="title">
-    {{{recipe.title}}}
 
-    
-</div>
-
-<div class="recipe-description">
-  {{recipe.description}}
-</div>
-
+{{> post-info post}}
 
 {{#if loggedIn}}
 <form class="comment-form">
+  <input type="hidden" value="{{post.id}}" name="recipe_id">
   <div>
-    <textarea name="comment-body"></textarea>
+    <textarea name="comment_text"></textarea>
   </div>
 
   <div>
@@ -24,7 +15,7 @@
 </form>
 {{/if}}
 
-{{> comments recipe.comments}}
+{{> comments post.comments}}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>

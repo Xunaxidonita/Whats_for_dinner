@@ -1,25 +1,26 @@
-async function editFormHandler(event) {
-    event.preventDefault();
-  
-    const title = document.querySelector('input[name="post-title"]').value.trim();
-    const id = window.location.toString().split('/')[
-      window.location.toString().split('/').length - 1
-    ];
-    const response = await fetch(`/api/posts/${id}`, {
-      method: 'PUT',
-      body: JSON.stringify({
-        title
-      }),
+
+$(".edit-post-form").on("submit", async (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  const data = $(event.currentTarget)
+    .serializeArray()
+    .reduce(function (obj, item) {
+      obj[item.name] = item.value;
+      return obj;
+    }, {});
+  try {
+    const response = await fetch(`/api/recipes/${data.id}`, {
+      method: "PUT",
+      body: JSON.stringify(data),
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     });
-  
-    if (response.ok) {
-      document.location.replace('/dashboard/');
-    } else {
-      alert(response.statusText);
+
+    if (response.status == 200) {
+      location.replace(`/recipe/${data.id}`);
     }
+  } catch (e) {
+    // TODO: show error message
   }
-  
-  document.querySelector('.edit-post-form').addEventListener('submit', editFormHandler);
+});

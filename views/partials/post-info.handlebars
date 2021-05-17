@@ -1,14 +1,28 @@
 <article class="post">
 <div class="title">
 <h1>
+<<<<<<< HEAD
     {{recipe.title}}
 </h1>
 </div>
 <div class="subtitle">
     Submitted by {{user.username}} on {{recipe.created_at}}
+=======
+    {{this.title}}
+</h1>
 </div>
+<div class="subtitle">
+    Submitted by {{this.username}} on {{this.created_at}}
+>>>>>>> 618a2fc7700e3774e6eb927f9e28717ab35303fa
+</div>
+
+<div class="description">
+  {{ this.description }}
+</div>
+
 <div class="meta">
-    <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a>
+    <a href="/post/{{this.id}}">{{this.comments.length}} {{format_plural "comment" this.comments.length}}</a>
   </div>
 
 </div>
+</article>
