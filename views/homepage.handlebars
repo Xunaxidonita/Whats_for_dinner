@@ -1,17 +1,24 @@
-<ol class="recipe-list">
+<div class="recipe-list">
     {{#each recipes as |recipe|}}
-    <li>
-        <article class="recipe">
+    
+        {{!-- <article class="recipe">
             <div class="title">
                 <a href="/recipe/{{recipe.id}}" target="_blank">{{recipe.title}}</a>
                 by {{recipe.user.username}} on {{recipe.created_at}}
-        
             </div>
-            <div class="meta">
+            
+        </article> --}}
+        <div class="card recipe" style="width: 18rem;">
+  {{!-- <img class="card-img-top" src="" alt="Card image cap"> --}}
+  <div class="card-body">
+    <h5 class="card-title title"><a href="/recipe/{{recipe.id}}" target="_blank">{{recipe.title}}</a> </h5>
+    
+    <p class="card-text">by {{recipe.user.username}} on {{recipe.created_at}}</p>
+    <div class="meta">
                
-                <a href="/recipe/{{id}}">{{recipe.comments.length}} comment(s)</a>
-            </div>
-        </article>
-    </li>
+        <a href="/recipe/{{id}}">{{recipe.comments.length}} comment(s)</a>
+    </div>
+  </div>
+</div>
     {{/each}}
-</ol>
+</div>
