@@ -14,7 +14,7 @@ async function seedCategories() {
       let catObj = { category_name: catObjs[i].strCategory };
       seed.push(catObj);
     }
-    Category.bulkCreate(seed);
+    await Category.bulkCreate(seed);
   } catch (err) {
     console.log(err);
   }
