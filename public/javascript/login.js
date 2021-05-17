@@ -23,7 +23,6 @@ $(".signup-form").on("submit", async (event) => {
       location.replace("/");
       return;
     } else {
-      debugger;
       const errorMessage = await response.json();
       $("#signup-error").text(errorMessage.message);
     }
@@ -52,7 +51,6 @@ $(".login-form").on("submit", async (event) => {
     if (response.status == 200) {
       location.replace("/");
     } else {
-      debugger;
       const errorMessage = await response.json();
       $("#login-error").text(errorMessage.message);
     }

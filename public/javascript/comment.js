@@ -16,7 +16,7 @@ $(".comment-form").on("submit", async (event) => {
       },
     });
     if (response.status == 200) {
-      location.reload;
+      location.reload();
     }
   } catch (e) {
     // TODO: show error message
