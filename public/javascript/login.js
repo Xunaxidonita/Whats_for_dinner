@@ -19,7 +19,6 @@ $(".signup-form").on("submit", async (event) => {
     });
 
     const result = await response.json();
-    debugger;
     if (response.status == 200) {
       location.replace("/");
       return;
@@ -49,7 +48,6 @@ $(".login-form").on("submit", async (event) => {
         "Content-Type": "application/json",
       },
     });
-    debugger;
     if (response.status == 200) {
       location.replace("/");
     }

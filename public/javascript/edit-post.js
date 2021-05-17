@@ -15,7 +15,7 @@ $(".edit-post-form").on("submit", async (event) => {
         "Content-Type": "application/json",
       },
     });
-    debugger;
+
     if (response.status == 200) {
       location.replace(`/recipe/${data.id}`);
     }
