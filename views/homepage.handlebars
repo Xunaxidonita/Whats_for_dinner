@@ -13,7 +13,7 @@
   <div class="card-body">
     <h5 class="card-title title"><a href="/recipe/{{recipe.id}}" target="_blank">{{recipe.title}}</a> </h5>
     
-    <p class="card-text">by {{recipe.user.username}} on {{recipe.created_at}}</p>
+    <p class="card-text">by {{this.user.username}} on {{format_date recipe.created_at}}</p>
     <div class="meta">
                
         <a href="/recipe/{{id}}">{{recipe.comments.length}} comment(s)</a>

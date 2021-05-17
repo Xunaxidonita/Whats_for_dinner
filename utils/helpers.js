@@ -1,3 +1,5 @@
+const moment = require("moment");
+
 module.exports = {
   format_plural: (word, amount) => {
     if (amount !== 1) {
@@ -5,5 +7,8 @@ module.exports = {
     }
 
     return word;
+  },
+  format_date: (datatime) => {
+    return moment(datatime).format("MMM Do YY");
   },
 };
