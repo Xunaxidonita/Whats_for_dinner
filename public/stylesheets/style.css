@@ -81,4 +81,50 @@ a:link {
   
     color: white;
     text-align: center;
-  } 
+  }
+
+
+
+h1 {
+    font-family: "Lato", sans-serif;
+    text-align: right;
+    font-weight: 500;
+    font-size: 50px;
+    margin: 0px 40px 0px 0px;
+    padding: 40px 0px 0px 0px;
+}
+
+.title, .description, h2 {
+    color: white;
+    margin: 10px 0 0 0;
+    font-family: "Lato", sans-serif;
+}
+.recipe-list {
+    margin-top: 50px;
+}
+.recipe-title {
+    text-align: left;
+    font-size: large;
+}
+.meta {
+    margin-top: 20px;
+    color: white;
+}
+
+textarea {
+    border-radius: 25px;
+    width: 200%;
+    height: 100px;
+}
+
+.subtitle, .text {
+    color: white;
+    font-family: "Lato", sans-serif;
+}
+
+.dashboard {
+    text-align: center;
+    margin-top: 50px;
+    overflow-y: scroll;
+}
+
