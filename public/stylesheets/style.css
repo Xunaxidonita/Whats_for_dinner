@@ -60,7 +60,7 @@ input {
 }
 
 .signup-form {
-  margin-top: 150px;
+  margin-top: 15px;
 }
 
 body {
@@ -73,6 +73,7 @@ body {
   display: inline;
   flex-wrap: wrap;
   justify-content: center;
+  padding-bottom: 100px;
 }
 
 header {
@@ -101,9 +102,10 @@ main {
 }
 
 .footer {
+  margin-top: 60px;
   position: fixed;
   left: 0;
-  bottom: 0;
+  bottom: 0px;
   width: 100%;
   padding-top: 16px;
   padding-bottom: 22px;
@@ -203,7 +205,48 @@ main {
 
 .for-loggin,
 .for-signup {
-  width: 30%;
+  width: 50%;
   text-align: center;
   justify-self: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.center {
+  text-align: center;
+  align-self: center;
+}
+
+.center button {
+  margin-top: 28px;
+  padding: 6px;
+  border-radius: 15px;
+}
+
+@media screen and (max-width: 980px) {
+  .for-loggin,
+  .for-signup {
+    width: 70%;
+  }
+  .footer {
+    margin-top: 80px;
+  }
+  body {
+    padding-bottom: 150px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .for-loggin,
+  .for-signup {
+    width: 100%;
+  }
+  .footer {
+    margin-top: 180px;
+  }
+  body {
+    padding-bottom: 200px;
+  }
 }
