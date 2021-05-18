@@ -1,0 +1,31 @@
+{{> post-info recipe}}
+<h2>Give This A Try</h2>
+<div class="title">
+    {{{recipe.title}}}
+
+    
+</div>
+
+<div class="recipe-description">
+  {{recipe.description}}
+</div>
+
+
+{{#if loggedIn}}
+<form class="comment-form">
+  <div>
+    <textarea name="comment-body"></textarea>
+  </div>
+
+  <div>
+    <button type="submit">Comment</button>
+    
+  </div>
+</form>
+{{/if}}
+
+{{> comments recipe.comments}}
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+{{/if}}
