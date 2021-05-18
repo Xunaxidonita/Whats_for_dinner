@@ -4,16 +4,21 @@
     <form class="new-post-form">
         <div>
             <label for="post-title">Title</label>
-            <input type="text" id="post-title" name="post-title" />
+            <input type="text" id="post-title" name="title"/>
         </div>
         <div>
-            <label for="post-ingredients">Ingredients</label>
-            <input id="post-ingredients" name="post-ingredients" />
+            <label for="post-ingredients">Category</label>
+            <select name="categories" id="category_selector">
+                {{#each categories}}
+                <option value="{{category.id}}" name="category_id">{{category.category_name}}</option>
+                {{/each}}
+            </select>
         </div>
         <div>
             <label for="post-directions">Directions</label>
-            <textarea id="post-directions" name="post-directions" />
-        </div>
+            <textarea id="post-directions" name="description">
+            </textarea>
+            </div>
         <button type="submit" class="btn">Create</button>
     </form>
 </section>
