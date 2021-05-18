@@ -67,7 +67,6 @@ router.get("/edit/:id", withAuth, (req, res) => {
           .json({ message: "No Recipe found with this ID" });
       }
       const recipe = dbRecipeData.get({ plain: true });
-      debugger;
       res.render("edit-post", { post });
     })
     .catch((err) => {

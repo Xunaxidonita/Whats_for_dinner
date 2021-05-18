@@ -34,7 +34,6 @@ async function recipeCreate() {
     }
   }
   try {
-    debugger;
     await Recipe.bulkCreate(recipes);
   } catch (err) {
     console.log(err);

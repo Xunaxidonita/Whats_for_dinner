@@ -18,10 +18,10 @@
       </h1>
       <nav>
         {{#if loggedIn}}
-        <a href="/dashboard">dashboard</a>
-        <button id="logout" class="btn-no-style">logout</button>
+        <a href="/dashboard" id="addBtn">Add your recipe + </a>
+        <a href="/api/users/logout">logout</a>
         {{else}}
-        <a href="/login">login</a>
+        <a href="/login">login/sign up</a>
         {{/if}}
       </nav>
     </header>
@@ -31,7 +31,9 @@
       {{{ body }}}
     </main>
     <div class= "footer">
-      Thanks for visiting!
+      <p>       Thanks for visiting!        </p>
+      <div class="ownership"><span>This site was made by:</span>     <span>Aaron Quach</span>    <span>Andrea Sanchez</span>    <span>Donaji Velazquez</span>    <span>Jessica Pyne</span>    <span>Kristian Mitchell</span></div>
+    
     </div>
 
 

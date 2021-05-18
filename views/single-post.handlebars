@@ -1,20 +1,23 @@
-{{> post-info post}}
+<div class="singlePost">
+  {{> post-info post}}
+  <div class="post-comments">
 
-{{#if loggedIn}}
-<form class="comment-form">
-  <input type="hidden" value="{{post.id}}" name="recipe_id">
-  <div>
-    <textarea name="comment_text"></textarea>
+    {{#if loggedIn}}
+    <form class="comment-form">
+      <input type="hidden" value="{{post.id}}" name="recipe_id">
+      <div>
+        <textarea name="comment_text"></textarea>
+      </div>
+      <div>
+        <button type="submit" class="btn-no-style">Comment</button>
+      </div>
+    </form>
+    {{/if}}
+
+  {{> comments post.comments}}
   </div>
+</div>
 
-  <div>
-    <button type="submit">Comment</button>
-    
-  </div>
-</form>
-{{/if}}
-
-{{> comments post.comments}}
 
 {{#if loggedIn}}
 <script src="/javascript/comment.js"></script>

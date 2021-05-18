@@ -1,8 +1,8 @@
 <article class="post">
 <div class="title">
-<h1>
-    {{this.title}}
-</h1>
+    <h1>
+        {{this.title}}
+    </h1>
 </div>
 <div class="subtitle">
     Submitted by {{this.username}} on {{format_date this.created_at}}
@@ -16,5 +16,4 @@
     <a href="/recipe/{{this.id}}">{{this.comments.length}} {{format_plural "comment" this.comments.length}}</a>
   </div>
 
-</div>
 </article>
