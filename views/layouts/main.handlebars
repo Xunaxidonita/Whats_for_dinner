@@ -12,18 +12,28 @@
 </head>
 
 <body>
-  <div class="wrapper">
     <header>
       <h1>
         <a href="/">What's For Dinner?</a>
       </h1>
+      <nav>
+        {{#if loggedIn}}
+        <a href="/dashboard">dashboard</a>
+        <button id="logout" class="btn-no-style">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
     </header>
+      
+
     <main>
       {{{ body }}}
     </main>
-    <footer>
+    <div class= "footer">
       Thanks for visiting!
-    </footer>
-  </div>
+    </div>
+
 
 </body>
+</html>
