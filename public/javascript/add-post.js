@@ -8,7 +8,7 @@ $(".new-post-form").on("submit", async (event) => {
       return obj;
     }, {});
   try {
-    console.log(data)
+    console.log(data);
     const response = await fetch("/api/recipes/", {
       method: "POST",
       body: JSON.stringify(data),
@@ -17,7 +17,7 @@ $(".new-post-form").on("submit", async (event) => {
       },
     });
     if (response.status == 200) {
-      location.replace(`/dashboard`);
+      location.replace(`/`);
     }
   } catch (e) {
     // TODO: show error message
