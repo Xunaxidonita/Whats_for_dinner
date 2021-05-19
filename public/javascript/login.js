@@ -25,6 +25,7 @@ $(".signup-form").on("submit", async (event) => {
     } else {
       const errorMessage = await response.json();
       $("#signup-error").text(errorMessage.message);
+      $("#signup-error").removeClass("hidden");
     }
   } catch (e) {
     console.error("Something went wrong!");
@@ -53,6 +54,7 @@ $(".login-form").on("submit", async (event) => {
     } else {
       const errorMessage = await response.json();
       $("#login-error").text(errorMessage.message);
+      $("#login-error").removeClass("hidden");
     }
   } catch (e) {
     console.error("Something went wrong!");

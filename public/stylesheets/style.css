@@ -169,6 +169,13 @@ footer p {
   border-radius: 8px;
 }
 
+.warning {
+  padding: 12px;
+  color: red;
+  border: red 1px solid;
+  font-weight: bolder;
+}
+
 .post,
 .add-recipe,
 .login-content,
