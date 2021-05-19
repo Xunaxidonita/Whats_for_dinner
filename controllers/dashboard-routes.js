@@ -26,11 +26,22 @@ router.get("/", withAuth, (req, res) => {
     ],
   })
     .then((dbRecipeData) => {
-      const recipes = dbRecipeData.map((recipe) => recipe.get({ plain: true }));
-      res.render("dashboard", {
-        recipes,
-        loggedIn: true,
-      });
+      Category.findAll({
+        attributes: [
+            'id',
+            'category_name'
+        ]
+      })
+      .then((dbCategoryData) => {
+        const categories = dbCategoryData.map((category) => category.get({ plain: true }));
+        const recipes = dbRecipeData.map((recipe) => recipe.get({ plain: true }));
+        console.log(categories, recipes)
+        res.render("dashboard", {
+          recipes,
+          categories,
+          loggedIn: true,
+        });
+      })
     })
     .catch((err) => {
       console.log(err);

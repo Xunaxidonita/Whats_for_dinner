@@ -10,8 +10,8 @@
         <div>
             <label for="post-ingredients">Category</label>
             <select name="categories" id="category_selector">
-                {{#each categories}}
-                <option value="{{category.id}}" name="category_id">{{category.category_name}}</option>
+                {{#each categories as |category|}}
+                <option value="{{category.id}}">{{category.category_name}}</option>
                 {{/each}}
             </select>
         </div>
