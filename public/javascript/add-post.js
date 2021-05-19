@@ -8,6 +8,7 @@ $(".new-post-form").on("submit", async (event) => {
       return obj;
     }, {});
   try {
+    console.log(data)
     const response = await fetch("/api/recipes/", {
       method: "POST",
       body: JSON.stringify(data),
