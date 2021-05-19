@@ -13,7 +13,7 @@ const routes = require("./controllers");
 const sequelize = require("./config/connection");
 
 const sess = {
-  secret: process.env.SECRET,
+  secret: "secret",
   cookie: {},
   resave: false,
   saveUninitialized: false,
