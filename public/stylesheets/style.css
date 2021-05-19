@@ -101,7 +101,7 @@ main {
   justify-content: center;
 }
 
-.footer {
+footer {
   margin-top: 60px;
   position: fixed;
   left: 0;
@@ -117,12 +117,17 @@ main {
   justify-content: center;
 }
 
-.footer p {
+footer p {
   margin: 10px auto 18px auto;
   font-weight: bolder;
 }
 .ownership span {
   margin: 0 12px 0 12px;
+}
+
+.footer-unblocker {
+  height: 100px;
+  background-color: transparent;
 }
 
 .btn-no-style {
@@ -230,11 +235,14 @@ main {
   .for-signup {
     width: 70%;
   }
-  .footer {
+  footer {
     margin-top: 80px;
   }
   body {
     padding-bottom: 150px;
+  }
+  .footer-unblocker {
+    height: 150px;
   }
 }
 
@@ -243,10 +251,13 @@ main {
   .for-signup {
     width: 100%;
   }
-  .footer {
+  footer {
     margin-top: 180px;
   }
   body {
     padding-bottom: 200px;
+  }
+  .footer-unblocker {
+    height: 250px;
   }
 }
